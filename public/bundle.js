@@ -67,71 +67,6 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const mapbox = __webpack_require__(2);
-
-const buildMarker = (category, coordinates) => {
-  let image = '';
-  switch (category) {
-    case 'activity':
-      image = '(http://i.imgur.com/WbMOfMl.png)';
-      break;
-    case 'hotel':
-      image = '(http://i.imgur.com/D9574Cu.png)';
-      break;
-    case 'restaurant':
-      image = '(http://i.imgur.com/cqR6pUI.png)';
-      break;
-    default: console.log('here')
-  }
-
-  let newMarker = document.createElement('div');
-  newMarker.style.width = '32px';
-  newMarker.style.height = '39px';
-  newMarker.style.backgroundImage = 'url' + image;
-
-  return new mapbox.Marker(newMarker).setLngLat(coordinates);
-
-};
-
-module.exports = buildMarker;
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-console.log('Hello from JavaScript!');
-
-const mapboxgl = __webpack_require__(2);
-const buildMarker = __webpack_require__(0);
-
-mapboxgl.accessToken = "pk.eyJ1IjoibWltaTE2OTQiLCJhIjoiY2phOXQ2eXlvMGwybjJ3cWl5bGdveGdnNyJ9.aQGOUt7BTYtzFFAZPWo0kg";
-
-const map = new mapboxgl.Map({
-  container: "map",
-  center: [-74.009, 40.705], // FullStack NY coordinates; alternatively, use [-87.6354, 41.8885] for Chicago
-  zoom: 12, // starting zoom
-  style: "mapbox://styles/mapbox/satellite-v9" // mapbox has lots of different map styles available.
-});
-
-const marker = document.createElement('div');
-marker.style.width = '32px';
-marker.style.height = '39px';
-marker.style.backgroundImage = "url(http://i.imgur.com/WbMOfMl.png)";
-
-new mapboxgl.Marker(marker).setLngLat([-74.009, 40.705]).addTo(map);
-
-const newMarker = buildMarker('activity', [-74.009573,40.706158]);
-newMarker.addTo(map);
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
 /* WEBPACK VAR INJECTION */(function(global) {var require;var require;(function(f){if(true){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.mapboxgl = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return require(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
 !function(t,n){"object"==typeof exports&&"undefined"!=typeof module?module.exports=n():"function"==typeof define&&define.amd?define(n):t.glMatrix=n()}(this,function(){"use strict";function t(t,n,r){var e=n[0],a=n[1],o=n[2];return t[0]=e*r[0]+a*r[3]+o*r[6],t[1]=e*r[1]+a*r[4]+o*r[7],t[2]=e*r[2]+a*r[5]+o*r[8],t}function n(t,n,r){var e=n[0],a=n[1],o=n[2],u=n[3];return t[0]=r[0]*e+r[4]*a+r[8]*o+r[12]*u,t[1]=r[1]*e+r[5]*a+r[9]*o+r[13]*u,t[2]=r[2]*e+r[6]*a+r[10]*o+r[14]*u,t[3]=r[3]*e+r[7]*a+r[11]*o+r[15]*u,t}function r(){var t=new Float32Array(4);return t[0]=1,t[1]=0,t[2]=0,t[3]=1,t}function e(t,n,r){var e=n[0],a=n[1],o=n[2],u=n[3],i=Math.sin(r),c=Math.cos(r);return t[0]=e*c+o*i,t[1]=a*c+u*i,t[2]=e*-i+o*c,t[3]=a*-i+u*c,t}function a(t,n,r){var e=n[0],a=n[1],o=n[2],u=n[3],i=r[0],c=r[1];return t[0]=e*i,t[1]=a*i,t[2]=o*c,t[3]=u*c,t}function o(){var t=new Float32Array(9);return t[0]=1,t[1]=0,t[2]=0,t[3]=0,t[4]=1,t[5]=0,t[6]=0,t[7]=0,t[8]=1,t}function u(t,n){var r=Math.sin(n),e=Math.cos(n);return t[0]=e,t[1]=r,t[2]=0,t[3]=-r,t[4]=e,t[5]=0,t[6]=0,t[7]=0,t[8]=1,t}function i(){var t=new Float32Array(16);return t[0]=1,t[1]=0,t[2]=0,t[3]=0,t[4]=0,t[5]=1,t[6]=0,t[7]=0,t[8]=0,t[9]=0,t[10]=1,t[11]=0,t[12]=0,t[13]=0,t[14]=0,t[15]=1,t}function c(t){return t[0]=1,t[1]=0,t[2]=0,t[3]=0,t[4]=0,t[5]=1,t[6]=0,t[7]=0,t[8]=0,t[9]=0,t[10]=1,t[11]=0,t[12]=0,t[13]=0,t[14]=0,t[15]=1,t}function f(t,n){var r=n[0],e=n[1],a=n[2],o=n[3],u=n[4],i=n[5],c=n[6],f=n[7],v=n[8],s=n[9],l=n[10],M=n[11],h=n[12],m=n[13],y=n[14],d=n[15],p=r*i-e*u,w=r*c-a*u,A=r*f-o*u,F=e*c-a*i,x=e*f-o*i,b=a*f-o*c,g=v*m-s*h,j=v*y-l*h,R=v*d-M*h,X=s*y-l*m,Z=s*d-M*m,k=l*d-M*y,q=p*k-w*Z+A*X+F*R-x*j+b*g;return q?(q=1/q,t[0]=(i*k-c*Z+f*X)*q,t[1]=(a*Z-e*k-o*X)*q,t[2]=(m*b-y*x+d*F)*q,t[3]=(l*x-s*b-M*F)*q,t[4]=(c*R-u*k-f*j)*q,t[5]=(r*k-a*R+o*j)*q,t[6]=(y*A-h*b-d*w)*q,t[7]=(v*b-l*A+M*w)*q,t[8]=(u*Z-i*R+f*g)*q,t[9]=(e*R-r*Z-o*g)*q,t[10]=(h*x-m*A+d*p)*q,t[11]=(s*A-v*x-M*p)*q,t[12]=(i*j-u*X-c*g)*q,t[13]=(r*X-e*j+a*g)*q,t[14]=(m*w-h*F-y*p)*q,t[15]=(v*F-s*w+l*p)*q,t):null}function v(t,n,r){var e=n[0],a=n[1],o=n[2],u=n[3],i=n[4],c=n[5],f=n[6],v=n[7],s=n[8],l=n[9],M=n[10],h=n[11],m=n[12],y=n[13],d=n[14],p=n[15],w=r[0],A=r[1],F=r[2],x=r[3];return t[0]=w*e+A*i+F*s+x*m,t[1]=w*a+A*c+F*l+x*y,t[2]=w*o+A*f+F*M+x*d,t[3]=w*u+A*v+F*h+x*p,w=r[4],A=r[5],F=r[6],x=r[7],t[4]=w*e+A*i+F*s+x*m,t[5]=w*a+A*c+F*l+x*y,t[6]=w*o+A*f+F*M+x*d,t[7]=w*u+A*v+F*h+x*p,w=r[8],A=r[9],F=r[10],x=r[11],t[8]=w*e+A*i+F*s+x*m,t[9]=w*a+A*c+F*l+x*y,t[10]=w*o+A*f+F*M+x*d,t[11]=w*u+A*v+F*h+x*p,w=r[12],A=r[13],F=r[14],x=r[15],t[12]=w*e+A*i+F*s+x*m,t[13]=w*a+A*c+F*l+x*y,t[14]=w*o+A*f+F*M+x*d,t[15]=w*u+A*v+F*h+x*p,t}function s(t,n,r){var e,a,o,u,i,c,f,v,s,l,M,h,m=r[0],y=r[1],d=r[2];return n===t?(t[12]=n[0]*m+n[4]*y+n[8]*d+n[12],t[13]=n[1]*m+n[5]*y+n[9]*d+n[13],t[14]=n[2]*m+n[6]*y+n[10]*d+n[14],t[15]=n[3]*m+n[7]*y+n[11]*d+n[15]):(e=n[0],a=n[1],o=n[2],u=n[3],i=n[4],c=n[5],f=n[6],v=n[7],s=n[8],l=n[9],M=n[10],h=n[11],t[0]=e,t[1]=a,t[2]=o,t[3]=u,t[4]=i,t[5]=c,t[6]=f,t[7]=v,t[8]=s,t[9]=l,t[10]=M,t[11]=h,t[12]=e*m+i*y+s*d+n[12],t[13]=a*m+c*y+l*d+n[13],t[14]=o*m+f*y+M*d+n[14],t[15]=u*m+v*y+h*d+n[15]),t}function l(t,n,r){var e=r[0],a=r[1],o=r[2];return t[0]=n[0]*e,t[1]=n[1]*e,t[2]=n[2]*e,t[3]=n[3]*e,t[4]=n[4]*a,t[5]=n[5]*a,t[6]=n[6]*a,t[7]=n[7]*a,t[8]=n[8]*o,t[9]=n[9]*o,t[10]=n[10]*o,t[11]=n[11]*o,t[12]=n[12],t[13]=n[13],t[14]=n[14],t[15]=n[15],t}function M(t,n,r){var e=Math.sin(r),a=Math.cos(r),o=n[4],u=n[5],i=n[6],c=n[7],f=n[8],v=n[9],s=n[10],l=n[11];return n!==t&&(t[0]=n[0],t[1]=n[1],t[2]=n[2],t[3]=n[3],t[12]=n[12],t[13]=n[13],t[14]=n[14],t[15]=n[15]),t[4]=o*a+f*e,t[5]=u*a+v*e,t[6]=i*a+s*e,t[7]=c*a+l*e,t[8]=f*a-o*e,t[9]=v*a-u*e,t[10]=s*a-i*e,t[11]=l*a-c*e,t}function h(t,n,r){var e=Math.sin(r),a=Math.cos(r),o=n[0],u=n[1],i=n[2],c=n[3],f=n[4],v=n[5],s=n[6],l=n[7];return n!==t&&(t[8]=n[8],t[9]=n[9],t[10]=n[10],t[11]=n[11],t[12]=n[12],t[13]=n[13],t[14]=n[14],t[15]=n[15]),t[0]=o*a+f*e,t[1]=u*a+v*e,t[2]=i*a+s*e,t[3]=c*a+l*e,t[4]=f*a-o*e,t[5]=v*a-u*e,t[6]=s*a-i*e,t[7]=l*a-c*e,t}function m(t,n,r,e,a){var o=1/Math.tan(n/2),u=1/(e-a);return t[0]=o/r,t[1]=0,t[2]=0,t[3]=0,t[4]=0,t[5]=o,t[6]=0,t[7]=0,t[8]=0,t[9]=0,t[10]=(a+e)*u,t[11]=-1,t[12]=0,t[13]=0,t[14]=2*a*e*u,t[15]=0,t}function y(t,n,r,e,a,o,u){var i=1/(n-r),c=1/(e-a),f=1/(o-u);return t[0]=-2*i,t[1]=0,t[2]=0,t[3]=0,t[4]=0,t[5]=-2*c,t[6]=0,t[7]=0,t[8]=0,t[9]=0,t[10]=2*f,t[11]=0,t[12]=(n+r)*i,t[13]=(a+e)*c,t[14]=(u+o)*f,t[15]=1,t}(function(){var t=new Float32Array(3);t[0]=0,t[1]=0,t[2]=0})(),function(){var t=new Float32Array(4);t[0]=0,t[1]=0,t[2]=0,t[3]=0}();return{vec3:{transformMat3:t},vec4:{transformMat4:n},mat2:{create:r,rotate:e,scale:a},mat3:{create:o,fromRotation:u},mat4:{create:i,identity:c,translate:s,scale:l,multiply:v,perspective:m,rotateX:M,rotateZ:h,invert:f,ortho:y}}});
 },{}],2:[function(_dereq_,module,exports){
@@ -679,10 +614,42 @@ module.exports={"$version":8,"$root":{"version":{"required":true,"type":"enum","
 
 
 //# sourceMappingURL=mapbox-gl.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 3 */
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+console.log('Hello from JavaScript!');
+
+const mapboxgl = __webpack_require__(0);
+const buildMarker = __webpack_require__(3);
+
+mapboxgl.accessToken = "pk.eyJ1IjoibWltaTE2OTQiLCJhIjoiY2phOXQ2eXlvMGwybjJ3cWl5bGdveGdnNyJ9.aQGOUt7BTYtzFFAZPWo0kg";
+
+const map = new mapboxgl.Map({
+  container: "map",
+  center: [-74.009, 40.705], // FullStack NY coordinates; alternatively, use [-87.6354, 41.8885] for Chicago
+  zoom: 12, // starting zoom
+  style: "mapbox://styles/mapbox/light-v9" // mapbox has lots of different map styles available.
+});
+
+const marker = document.createElement('div');
+marker.style.width = '32px';
+marker.style.height = '39px';
+marker.style.backgroundImage = "url(http://i.imgur.com/WbMOfMl.png)";
+
+new mapboxgl.Marker(marker).setLngLat([-74.009, 40.705]).addTo(map);
+
+const newMarker = buildMarker('activity', [-74.009573,40.706158]);
+newMarker.addTo(map);
+
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports) {
 
 var g;
@@ -706,6 +673,39 @@ try {
 // easier to handle this case. if(!global) { ...}
 
 module.exports = g;
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const mapbox = __webpack_require__(0);
+
+const buildMarker = (category, coordinates) => {
+  let image = '';
+  switch (category) {
+    case 'activity':
+      image = '(http://i.imgur.com/WbMOfMl.png)';
+      break;
+    case 'hotel':
+      image = '(http://i.imgur.com/D9574Cu.png)';
+      break;
+    case 'restaurant':
+      image = '(http://i.imgur.com/cqR6pUI.png)';
+      break;
+    default: console.log('here')
+  }
+
+  let newMarker = document.createElement('div');
+  newMarker.style.width = '32px';
+  newMarker.style.height = '39px';
+  newMarker.style.backgroundImage = 'url' + image;
+
+  return new mapbox.Marker(newMarker).setLngLat(coordinates);
+
+};
+
+module.exports = buildMarker;
 
 
 /***/ })
