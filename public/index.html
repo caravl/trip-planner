@@ -1,11 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Trip Planner</title>
-    <link rel="stylesheet" href="./style.css"></link>
-    <script src="./bundle.js" defer></script>
-  </head>
-  <body>
-    <div id="map"></div>
-  </body>
+
+<head>
+  <title>Trip Planner</title>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.42.1/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" href="./style.css"></link>
+  <script src="./bundle.js" defer></script>
+</head>
+
+<body>
+  <header>
+    Trip Planner
+  </header>
+  <div id="boxes">
+    <div id="available-attraction">
+      <ul>
+        <li>Hotels</li>
+        <select>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+        <li>Restaurants</li>
+        <select>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+        <li>Things To Do</li>
+        <select>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+      </ul>
+    </div>
+
+    <div id="selected-attractions">
+      <h3>My Itinerary:</h3>
+
+      <ul id="selecteds">
+        <li>Hotels</li>
+        <div class="dumb-node">
+          <ul>
+            <li>xxxxx</li>
+          </ul>
+          <button type="button">x</button>
+        </div>
+        <li>Restaurants</li>
+        <div class="dumb-node">
+          <ul>
+            <li>xxxxx</li>
+          </ul>
+          <button type="button">x</button>
+
+      </div>
+      <li>Activities</li>
+      <div class="dumb-node">
+        <ul>
+          <li>xxxxx</li>
+        </ul>
+        <button type="button">x</button>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <div id="map"></div>
+</body>
+
 </html>

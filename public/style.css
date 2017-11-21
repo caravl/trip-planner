@@ -1,14 +1,62 @@
 * {
     box-sizing: border-box;
   }
-  
+
   body {
+    display: flex;
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #C1B5AD;
+    /* background-color: #C1B5AD; */
   }
 
   #map{
       height: 100vh;
       width: 100vw;
+      z-index: -1;
+  }
+
+  header {
+    display: flex;
+    background-color: pink;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 50px;
+  }
+
+  #boxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* top: 50px; */
+    /* height: 100vh; */
+    right: 0;
+    z-index: -1;
+  }
+
+  #available-attraction {
+    display: flex;
+    background-color: orange;
+    width: 300px;
+    height: 300px;
+    z-index: 0;
+  }
+
+  #selected-attractions {
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    width: 300px;
+    height: 300px;
+    z-index: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .dumb-node {
+    display: flex;
+    flex-direction: row;
   }
